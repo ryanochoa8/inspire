@@ -1,6 +1,8 @@
+import Todo from "../../models/todo.js";
+
 // @ts-ignore
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/jake/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/RyanO/todos/',
 	timeout: 3000
 });
 
@@ -19,6 +21,10 @@ function _setState(prop, data) {
 }
 
 export default class TodoService {
+	get Todo() {
+		return _state.todos.map(todo => new Todo(todo))
+	}
+
 	get TodoError() {
 		return _state.error
 	}
@@ -31,7 +37,9 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
-				// WHAT DO YOU DO WITH THE RESPONSE?
+				console.log("all todo requests", res.data)
+				_setState("todos", res.data.data)
+				// STUB Almost done. (I Think) WHAT DO YOU DO WITH THE RESPONSE?
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -39,7 +47,9 @@ export default class TodoService {
 	addTodo(todo) {
 		todoApi.post('', todo)
 			.then(res => {
-				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
+				console.log(res.data.message)
+				this.getTodos()
+				// STUB Almost Done. (I Think) WHAT DO YOU DO AFTER CREATING A NEW TODO?
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -57,7 +67,15 @@ export default class TodoService {
 	}
 
 	removeTodo(todoId) {
-		// This one is on you to write.... 
+		todoApi.delete(todoId)
+			.then(() => {
+				let todos = this.Todo
+				let index = todos.findIndex(t => t._id == todoId)
+				todos.splice(index, 1)
+				_setState('todos', todos)
+			})
+			.catch(err => console.error(err))
+		// STUB Could be wrong. This one is on you to write.... 
 		// The http method is delete at the todoId
 	}
 

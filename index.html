@@ -7,9 +7,11 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Inspire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body id="bg-image">
+<body class="container-fluid" id="bg-image">
 	<div id="weather">
 		Your Weather Template
 	</div>
@@ -19,10 +21,22 @@
 	</div>
 
 	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
+		<h4>
+			A Todo List
+		</h4>
+		<div class="row">
+			<div id="todo-error"></div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<form onsubmit="app.controllers.todoController.addTodo(event)">
+					<label for="description">Enter a Todo: </label>
+					<input type="text" name="description" required>
+					<button type="submit" class="btn btn-primary">Add Todo</button>
+				</form>
+			</div>
+		</div>
+		<div id="todos" class="row"></div>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
