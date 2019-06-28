@@ -1,3 +1,5 @@
+import Quote from "../../models/quote.js";
+
 // @ts-ignore
 const _quoteApi = axios.create({
 	baseURL: '//bcw-sandbox.herokuapp.com/api/quotes',
@@ -29,7 +31,7 @@ export default class QuoteService {
 	getQuote() {
 		console.log('Receiving a Quote')
 		_quoteApi.get().then(res => {
-			_setState('quote', new QuoteService())
+			_setState('quote', new Quote(res.data.quote))
 		})
 			.catch(err => _setState('error', err.response.data))
 	}
