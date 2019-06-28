@@ -44,6 +44,7 @@ export default class TodoController {
 	toggleTodoStatus(todoId) {
 		// asks the service to edit the todo status
 		_todoService.toggleTodoStatus(todoId)
+
 	}
 
 	removeTodo(todoId) {
