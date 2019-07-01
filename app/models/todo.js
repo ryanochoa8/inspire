@@ -7,16 +7,18 @@ export default class Todo {
   }
   get Template() {
     let template = `
-      <div class="col-4">
-      <input class="form-check-input inline" type="checkbox" value="" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')"><p><b>Description:</b> ${this.description}</p>
-      </div>
+      <li class="list-group-item ml-2">
+      <input class="form-check-input inline" type="checkbox" value="" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">
+      Description: ${this.description}
+      </li>
         `
     if (this.completed == true) {
       template = `
-      <div class="col-4">
-      <input class="form-check-input inline" type="checkbox" value="" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')" checked><strike><p><b>Description:</b> ${this.description}</p></strike>
+      <li class="list-group-item ml-2">
+      <input class="form-check-input inline" type="checkbox" value="" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')" checked>
+      <strike>Description: ${this.description}</strike>
         <button type="delete" class="btn btn-danger btn-sm" onclick="app.controllers.todoController.removeTodo('${this._id}')">Delete Todo</button>
-      </div>
+      </li>
       `
     }
     return template
