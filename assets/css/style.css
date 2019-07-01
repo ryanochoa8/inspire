@@ -8,4 +8,14 @@
   width: 100vw;
   background-size: contain;
   background-repeat: no-repeat;
+  
+}
+
+.row{
+  color: white !important;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+    1px 1px 0 #000 !important;
 }
