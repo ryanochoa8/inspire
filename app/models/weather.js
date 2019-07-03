@@ -15,7 +15,8 @@ export default class Weather {
     let fahrenheit = (kelvin - 273.15) * (9 / 5) + 32
     return `
     <div class="col">
-    <h5><b>${this.city}:</b> <h3>${Math.round(fahrenheit)}&#176;F</h3></h5>
+    <h5><b>${this.city}:</b> ${Math.round(fahrenheit)}&#176;F</h5>
+    </div>
     `
   }
 }

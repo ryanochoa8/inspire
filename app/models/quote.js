@@ -11,6 +11,7 @@ export default class Quote {
     <div class="col-4">
     <h5><b>Author:</b> ${this.author}</h5>
     <p>${this.body}</p>
+    </div>
     `
   }
 }

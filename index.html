@@ -15,10 +15,8 @@
 	<div id="weather" class="row text-center"></div>
 	<h4 class="row"><b>The Quote of the Day</b></h4>
 	<div id="quote" class="row"></div>
-	<div class="row">
-		<div id="todo-error" class="row"></div>
-	</div>
-	<div class="row pl-3 justify-content-end">
+	<div id="todo-error" class="row"></div>
+	<div class="row pl-3 justify-content-center">
 		<div class="card" style="width: 18rem;">
 			<div class="card-header">
 				<h3>My Todo List <span id="todo-count"></span></h3>
@@ -26,17 +24,17 @@
 					<label for="description">Enter a Todo: </label>
 					<input type="text" name="description" required>
 					<button type="submit" class="btn btn-primary">Add Todo</button>
+					<ul class="list-group list-group-flush">
+						<div id="todos" class="row">
+						</div>
+					</ul>
 				</form>
 			</div>
-			<ul class="list-group list-group-flush">
-				<div id="todos" class="row"></div>
-			</ul>
 		</div>
 	</div>
 
-	</div>
 
-	</div>
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<script type="module" src="app/main.js"></script>
