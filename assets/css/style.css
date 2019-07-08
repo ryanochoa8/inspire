@@ -19,3 +19,12 @@
 		-1px 1px 0 #000,
     1px 1px 0 #000 !important;
 }
+
+#greeting{
+  color: rgb(15, 56, 133) !important;
+  text-shadow:
+	-1px -1px 0 rgb(255, 255, 255),
+	1px -1px 0 rgb(255, 255, 255),
+	-1px 1px 0 rgb(255, 255, 255),
+  1px 1px 0 rgb(255, 255, 255) !important;
+}
